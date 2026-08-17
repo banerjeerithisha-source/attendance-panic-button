@@ -1,0 +1,6 @@
+{
+  "name": "Survival",
+  "description": "An attendance tracker that calculates survival chances and panic levels based on your required attendance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
