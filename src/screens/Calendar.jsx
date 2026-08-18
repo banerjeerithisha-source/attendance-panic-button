@@ -1,7 +1,7 @@
 import { Calendar as CalendarIcon } from 'lucide-react';
 
 
-export default function Calendar({ subjects }) {
+export default function Calendar({ subjects, onNavigateToPanic }) {
   const weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
   return (
@@ -32,12 +32,21 @@ export default function Calendar({ subjects }) {
                   const statusColor = p >= subject.targetPercentage ? 'text-tertiary-green' : 'text-primary-red';
                   
                   return (
-                    <div key={`${day}-${subject.id}`} className="w-full bg-surface-dark rounded-xl border border-outline-color p-4 flex justify-between items-center shadow-md">
+                    <div 
+                      key={`${day}-${subject.id}`} 
+                      onClick={onNavigateToPanic}
+                      className="w-full bg-surface-dark rounded-xl border border-outline-color p-4 flex justify-between items-center shadow-md cursor-pointer hover:opacity-80 active:scale-[0.98] transition-all"
+                    >
                       <div className="flex flex-col">
                         <span className="text-base font-bold text-on-background">{subject.name}</span>
                         <span className="text-xs text-on-surface-variant mt-1">10:00 AM - 11:30 AM</span>
                       </div>
-                      <span className={`text-sm font-bold ${statusColor}`}>{p.toFixed(0)}%</span>
+                      <div className="flex flex-col items-end justify-center">
+                        <span className={`text-sm font-bold ${statusColor}`}>{p.toFixed(0)}%</span>
+                        {p < subject.targetPercentage && (
+                          <span className="text-[10px] text-primary-red uppercase font-semibold mt-0.5">Panic</span>
+                        )}
+                      </div>
                     </div>
                   );
                 })}

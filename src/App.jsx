@@ -48,7 +48,7 @@ function App() {
         <main className="flex-1 overflow-y-auto pb-[100px]">
           {activeTab === 'dashboard' && <Dashboard subjects={subjects} onNavigateToPanic={() => setActiveTab('panic')} />}
           {activeTab === 'panic' && <Panic subjects={subjects} onNavigateToDashboard={() => setActiveTab('dashboard')} />}
-          {activeTab === 'calendar' && <Calendar subjects={subjects} />}
+          {activeTab === 'calendar' && <Calendar subjects={subjects} onNavigateToPanic={() => setActiveTab('panic')} />}
           {activeTab === 'profile' && <Profile userConfig={userConfig} subjects={subjects} onSaveConfig={setUserConfig} onAddSubject={addSubject} />}
         </main>
 
