@@ -4,17 +4,16 @@ import Dashboard from './screens/Dashboard';
 import Panic from './screens/Panic';
 import Calendar from './screens/Calendar';
 import Profile from './screens/Profile';
-import { Subject, UserConfig } from './types';
 
 function App() {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'panic' | 'calendar' | 'profile'>('dashboard');
+  const [activeTab, setActiveTab] = useState('dashboard');
   
-  const [subjects, setSubjects] = useState<Subject[]>(() => {
+  const [subjects, setSubjects] = useState(() => {
     const saved = localStorage.getItem('subjects');
     return saved ? JSON.parse(saved) : [];
   });
   
-  const [userConfig, setUserConfig] = useState<UserConfig>(() => {
+  const [userConfig, setUserConfig] = useState(() => {
     const saved = localStorage.getItem('userConfig');
     return saved ? JSON.parse(saved) : {
       name: 'Student',
@@ -32,7 +31,7 @@ function App() {
     localStorage.setItem('userConfig', JSON.stringify(userConfig));
   }, [userConfig]);
 
-  const addSubject = (sub: Subject) => {
+  const addSubject = (sub) => {
     setSubjects(prev => [...prev, { ...sub, id: Date.now() }]);
   };
 
@@ -41,7 +40,7 @@ function App() {
     { id: 'panic', icon: AlertTriangle, label: 'Panic' },
     { id: 'calendar', icon: CalendarIcon, label: 'Calendar' },
     { id: 'profile', icon: User, label: 'Profile' },
-  ] as const;
+  ];
 
   return (
     <div className="min-h-screen bg-black flex justify-center">

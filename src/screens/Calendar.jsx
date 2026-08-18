@@ -1,11 +1,7 @@
-import { Subject } from '../types';
 import { Calendar as CalendarIcon } from 'lucide-react';
 
-interface Props {
-  subjects: Subject[];
-}
 
-export default function Calendar({ subjects }: Props) {
+export default function Calendar({ subjects }) {
   const weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
   return (

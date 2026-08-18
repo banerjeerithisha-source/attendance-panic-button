@@ -1,12 +1,7 @@
 import { LayoutDashboard, CheckCircle, ThumbsUp, AlertTriangle, AlertCircle } from 'lucide-react';
-import { Subject } from '../types';
 
-interface Props {
-  subjects: Subject[];
-  onNavigateToPanic: () => void;
-}
 
-export default function Dashboard({ subjects, onNavigateToPanic }: Props) {
+export default function Dashboard({ subjects, onNavigateToPanic }) {
   if (subjects.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center h-full min-h-[400px] p-6 text-center space-y-4">

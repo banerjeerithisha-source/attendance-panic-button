@@ -1,14 +1,7 @@
 import { useState } from 'react';
-import { Subject, UserConfig } from '../types';
 
-interface Props {
-  userConfig: UserConfig;
-  subjects: Subject[];
-  onSaveConfig: (config: UserConfig) => void;
-  onAddSubject: (subject: Subject) => void;
-}
 
-export default function Profile({ userConfig, onSaveConfig, onAddSubject }: Props) {
+export default function Profile({ userConfig, onSaveConfig, onAddSubject }) {
   const [name, setName] = useState(userConfig.name);
   const [college, setCollege] = useState(userConfig.college);
   const [semester, setSemester] = useState(userConfig.semester);

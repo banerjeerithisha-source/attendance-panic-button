@@ -1,12 +1,7 @@
-import { Subject } from '../types';
 import { RefreshCw } from 'lucide-react';
 
-interface Props {
-  subjects: Subject[];
-  onNavigateToDashboard: () => void;
-}
 
-export default function Panic({ subjects, onNavigateToDashboard }: Props) {
+export default function Panic({ subjects, onNavigateToDashboard }) {
   const totalAttended = subjects.reduce((sum, s) => sum + s.attendedClasses, 0);
   const totalClasses = subjects.reduce((sum, s) => sum + s.totalClasses, 0);
   const overallPercentage = totalClasses > 0 ? (totalAttended / totalClasses) * 100 : 0;
